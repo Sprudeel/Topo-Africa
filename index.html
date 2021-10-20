@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;500;900&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topo Afrika</title>
+    <link rel="stylesheet" href="style.css">
+    <div class="title">
+        <div class="version">Angaben ohne Gewähr</div>
+        <div class="name">Topo Afrika</div>
+        <div class="credit" id="credit"> Version 0.1 <br> created by <a href="https://github.com/Sprudeel">@Sprudeel</a></div>
+    </div>
+</head>
+<body>
+    <div class="content">
+        <div class="menu" id="99">
+            
+                <div class="choosemode">Modus auswählen <span title="Wähle einen Modus aus der Liste aus! &#013; 1. Endless - Zufällige Fragen und endlos! &#013; 2. Speed - 1 Minute Zeit um möglichst viel zulösen! &#013; 3. Learn - Alle Fragen einmal! &#013; 4. Karte - Lerne wie  mit Karteikarten!"class="material-icons md-small png">help_outline</span></div>
+            <div class="container-mode">
+                <button id="101" class="mode" onclick="setMode('endless', '101')">Endless</button>
+             
+                <button id="102" class="mode"onclick="setMode('speed', '102')">Speed</button>
+            
+                <button id="103" class="mode"onclick="setMode('learn', '103')">Learn</button>
+            
+                <button id="103" class="mode"onclick="setMode('kartei', '103')">Kartei</button>
+            </div>    
+            <div class="choosemode">Thema auswählen <span title="Wähle was genau du lernen möchtest (selbst erklärend)" class="material-icons md-small png">help_outline</span></div>
+            <button id="201" class="choose" onclick="setSubject('kantone', '201')">Kantone</button>
+            <br>
+            <button id="202" class="choose" onclick="setSubject('staedte', '202')">Städte</button>
+            <br>
+            <button id="203" class="choose" onclick="setSubject('paesse', '203')">Pässe</button>
+            <br>
+            <button id="204" class="choose" onclick="setSubject('seen', '204')">Seen</button>
+            <br>
+            <button id="205" class="choose" onclick="setSubject('fluesse', '205')">Flüsse</button>
+            <br>
+            <button id="206" class="choose" onclick="setSubject('berge', '206')">Berge, Gebirge</button>
+            <br>
+            <button id="207" class="choose" onclick="setSubject('special', '207')">Spezielle Gebiete</button>
+            <br>
+            <button id="300" class="close" onclick="hideMenu()"><span class="material-icons md-18 png">chevron_left</span>Menu schliessen</button>    
+        </div>  
+        <div class="game" id="69">
+            <div class="image">
+                <img id="1000" src="images/normal.jpg" alt="">
+            </div>
+            <div class="input">
+                <input type="" placeholder="Lösung?" id="420"> <button class="submit" id="421" onclick="checkSolution()">Check</button>
+                <br> <div id="222"><button class="submit" onclick="showSolution()">Lösung Anzeigen</button></div>
+            </div>
+
+            <div>
+               <p class="solution">Lösung</p> 
+            </div>
+        </div>
+        <div class="info" id="800">
+            <div class="info1">
+                <div class="subtitle">
+                    <h3>
+                        <span class="subtitle" id="333">Korrekt gelöst</span>
+                    </h3>
+                </div>
+                <div class="correct-container" id="500">
+                    <p id="502" style="color: red; text-align: center;">keine</p>
+                    <p id=501></p>
+                </div>
+            </div>  
+            <div class="info2">
+                <div class="subtitle">
+                    <h3>
+                        <span class="subtitle">Stoppuhr</span>
+                    </h3>
+                </div>
+                <div class="currenttime" id="690">00:00:00</div>
+                <div class="timebtn">
+                    <button id="555" class="close pad" onclick="startTimer()">Start / Pause</button> 
+                    <button id="556" class="close pad" onclick="resetTimer()">Reset</button>
+                </div>
+            </div>
+            <div class="info3">
+                <div class="subtitle">
+                    <h3>
+                        <span class="subtitle">Datum und Zeit</span>
+                    </h3>
+                </div>
+                <div class="time" id="600"></div>
+                <button id="300" class="close" onclick="hideInfo()">Info schliessen<span class="material-icons md-18 png">chevron_right</span></button>
+            </div>
+        </div>  
+    </div>
+    <div id="400">
+        <button class="expand" onclick="expandMenu()">
+            <span class="material-icons md-18 png">chevron_right</span>
+        </button>
+    </div>
+    <div id="700">
+        <button class="expand2" onclick="expandInfo()">
+            <span class="material-icons md-18 png">chevron_left</span>
+        </button>
+    </div>
+    <div id="overlay">
+        
+        
+        
+    </div>
+</body>
+
+
+
+
+
+<script src="index.min.js"></script>
+<script src="source.js"></script>
+</html>
