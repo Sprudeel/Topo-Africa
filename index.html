@@ -16,7 +16,7 @@
         <div class="credit" id="credit"> Version 0.1 <br> created by <a href="https://github.com/Sprudeel">@Sprudeel</a></div>
     </div>
 </head>
-<body>
+<body id="20">
     <div class="content">
         <div class="menu" id="99">
             
@@ -28,16 +28,16 @@
             
                 <button id="103" class="mode"onclick="setMode('learn', '103')">Learn</button>
             
-                <button id="103" class="mode"onclick="setMode('kartei', '103')">Kartei</button>
+                <button id="104" class="mode"onclick="setMode('kartei', '104')">Kartei</button>
             </div>    
             <div class="choosemode">Thema auswählen <span title="Wähle was genau du lernen möchtest (selbst erklärend)" class="material-icons md-small png">help_outline</span></div>
-            <button id="201" class="choose" onclick="setSubject('kantone', '201')">Kantone</button>
+            <button id="201" class="choose" onclick="setSubject('staaten', '201')">Staaten</button>
             <br>
             <button id="202" class="choose" onclick="setSubject('staedte', '202')">Städte</button>
             <br>
-            <button id="203" class="choose" onclick="setSubject('paesse', '203')">Pässe</button>
+            <button id="203" class="choose" onclick="setSubject('meere', '203')">Meere</button>
             <br>
-            <button id="204" class="choose" onclick="setSubject('seen', '204')">Seen</button>
+            <button id="204" class="choose" onclick="setSubject('inseln', '204')">Inseln</button>
             <br>
             <button id="205" class="choose" onclick="setSubject('fluesse', '205')">Flüsse</button>
             <br>
@@ -49,7 +49,7 @@
         </div>  
         <div class="game" id="69">
             <div class="image">
-                <img id="1000" src="images/normal.jpg" alt="">
+                <img id="1000" src="images/Naturraum.png" alt="">
             </div>
             <div class="input">
                 <input type="" placeholder="Lösung?" id="420"> <button class="submit" id="421" onclick="checkSolution()">Check</button>
@@ -57,7 +57,7 @@
             </div>
 
             <div>
-               <p class="solution">Lösung</p> 
+                <button id="2001" class="submit kart">Nochmals</button><button id="2002" class="submit kart">Kann Ich!</button>
             </div>
         </div>
         <div class="info" id="800">
@@ -106,9 +106,6 @@
         </button>
     </div>
     <div id="overlay">
-        
-        
-        
     </div>
 </body>
 

@@ -41,26 +41,21 @@ var counter = 1;
 
 
 
-// Antworten für Kanton Mode (Array)
-let cantonAnswers = ["Zürich", "Bern", "Luzern", "Uri", "Schwyz", "Obwalden", "Nidwalden", "Glarus", "Zug", "Freiburg", "Solothurn", "Basel Stadt", "Basel Land", "Schaffhausen", "Appenzell Ausserrhoden", "Appenzell Innerrhoden", "Sankt Gallen", "Graubünden", "Aargau", "Thurgau", "Tessin", "Waadt", "Wallis", "Neuenburg", "Genf", "Jura"];
+// Answers for Meere
+var meereAnswers = ["Atlantischer Ozean", "Benguelastrom", "Golf von Aden", "Golf von Guinea", "Indischer Ozean", "Mittelmeer", "Rotes Meer", "Strasse von Gibraltar", "Strasse von Mosambik"];
 
-// Antworten für Stadt Mode (Array)
-let stadtAnswers = ["Aarau", "Herisau", "Appenzell", "Liestal", "Basel", "Bern", "Biel", "Thun", "Freiburg", "Genf", "Glarus", "Chur", "Delémont", "Luzern", "La Chaux-de-Fonds", "Neuenburg", "Stans", "Sarnen", "Schaffhausen", "Schwyz", "Olten", "Solothurn", "Sankt Gallen", "Bellinzona", "Chiasso", "Lugano", "Frauenfeld", "Altdorf", "Lausanne", "Sion", "Zug", "Winterthur", "Zürich"];
+// Answers for Islands
+var inselnAnswers = ["Kanarische Inseln", "Kap der Guten Hoffnung", "Madagaskar", "Mauritius", "Réunion", "Sansibar", "Seychellen", "Somali-Halbinsel"];
 
-// Antworten für Pass Mode (Array)
-let passAnwers = ["Bernina", "Bözberg", "Col du Mollendruz", "Furka", "Gemmi", "Gotthard", "Greina", "Grimsel", "Grosser Sankt Bernhard", "Hauenstein", "Julier", "Lötschberg", "Lukmanier", "Maloja", "Monte Moro", "Nufenen", "Ofen", "Panixer", "San Bernadino", "Septimer", "Simplon", "Vue des Alpes"];
+// Answers for Berge
+var bergAnswers = ["Drakensberge", "Hochland von äthiopien", "Hoggar", "Hoher Atlas", "Kilimandscharo", "Mount Kenia", "Sahara-Atlas", "Tell-Atlas", "Tibesti"];
 
-// Antworten für Seen Mode (Array)
-let seenAnswers = ["Bielersee", "Bodensee", "Genfersee", "Langensee", "Luganersee", "Neuenburgersee", "Sankt Moritzersee", "Thunersee", "Vierwaldstättersee", "Walensee", "Zugersee", "Zürichsee"];
+// Answers for Flüsse
+var flussAnswers = ["Blauer Nil", "Limpopo", "Malawisee", "Niger", "Nil", "Okawango", "Oranje", "Sambesi", "Senegal", "Tanganjika-See", "Tschadsee", "Victoriasee", "Volta", "Weisser Nil", "Zaire"];
 
-// Antworten für Fluss Mode (Array)
-let flussAnswers = ["Aare", "Birs", "Broye", "Doubs", "Grosse Emme", "Hinterrhein", "Inn", "Kander", "Kleine Emme", "Landquart", "Limmat", "Linth", "Maggia", "Reuss", "Rhein", "Rhone", "Saane", "Simme", "Sitter", "Tessin", "Thur", "Vorderrhein"];
+// Answers for Special Places
+var specialAnswers = ["Arabische Wüste", "Kalahari", "Kongo-Becken", "Libysche Wüste", "Namib", "Nubische Wüste", "Sahara", "Sahel"];
 
-// Antworten für Berge, Gebirge Mode (Array)
-let bergAnswers = ["Alpen", "Chasseral", "Churfirsten", "Dom", "Dufourspitze", "Eiger", "Jungfrau", "Jura", "Les Diablerets", "Matterhorn", "Mythen", "Napf", "Pilatus", "Piz Bernina", "Rigi", "San Salvatore", "Säntis", "Weissenstein"];
-
-// Antworten für Special Mode (Array)
-let specialAnswers = ["Berner Oberland", "Engadin", "Mittelland", "Seeland"];
 
 // Hide Expand Menu & Info Buttons
 document.getElementById(400).style.display = "none";
@@ -73,33 +68,11 @@ document.addEventListener("keypress", function(event) {
     }
 })
 
+// Set New Background
+document.getElementById(20).style.backgroundImage = "url(images/bg/bg" + Math.floor(Math.random() * 7 + 1) + ".jpg)";
+
 // Set mode if Button was clicked
 function setMode(inputmode, buttonId) {
-
-    // Set ArrayAnswers for safety reasons
-    switch(subject) {
-        case "kantone":  
-            arrayAnswers = cantonAnswers;
-            break;
-        case "staedte":  
-            arrayAnswers = stadtAnswers;
-            break;
-        case "paesse":
-            arrayAnswers = passAnwers;
-            break;
-        case "seen":
-            arrayAnswers = seenAnswers;
-            break;
-        case "fluesse":
-            arrayAnswers = flussAnswers;
-            break;
-        case "berge":
-            arrayAnswers = bergAnswers;
-            break;
-        case "special":
-            arrayAnswers = specialAnswers;
-            break;
-    }
 
 
     // Reset Timer on Left Side
@@ -117,6 +90,7 @@ function setMode(inputmode, buttonId) {
     document.getElementById(101).style.backgroundColor = "white";
     document.getElementById(102).style.backgroundColor = "white";
     document.getElementById(103).style.backgroundColor = "white";
+    document.getElementById(104).style.backgroundColor = "white";
 
     // fill clicked button
     document.getElementById(buttonId).style.backgroundColor = "#6cb104";
@@ -207,19 +181,21 @@ function setSubject(inputsubject, buttonId) {
     subject = inputsubject;
 
 
-    // Switch ArrayAnswers Array to the Answers
-    switch(inputsubject) {
-        case "kantone":  
-            arrayAnswers = cantonAnswers;
+    // Set ArrayAnswers for safety reasons
+    switch(subject) {
+        case "staaten":
+            window.alert("Not yet Done!")
+            window.location.reload(true);
             break;
-        case "staedte":  
-            arrayAnswers = stadtAnswers;
+        case "staedte":
+            window.alert("Not yet Done!")
+            window.location.reload(true);
             break;
-        case "paesse":
-            arrayAnswers = passAnwers;
+        case "meere":
+            arrayAnswers = meereAnswers;
             break;
-        case "seen":
-            arrayAnswers = seenAnswers;
+        case "inseln":
+            arrayAnswers = inselnAnswers;
             break;
         case "fluesse":
             arrayAnswers = flussAnswers;
@@ -293,20 +269,28 @@ function Game() {
     // Reset show Solution Button
     document.getElementById(222).className = " ";
     document.getElementById(222).innerHTML = "<button class='submit' onclick='showSolution()'>Lösung Anzeigen</button>";
+    document.getElementById(2001).style.display = "none";
+    document.getElementById(2002).style.display = "none";
 
     // Reset Box Shadows and Answer
     document.getElementById(1000).style.boxShadow = "0px 0px 3px 3px #0000006e";
     document.getElementById(420).style.boxShadow = "none";
     document.getElementById(420).value = "";
 
-
+    if(mode != "kartei") {
+        document.getElementById(420).style.display = "inline-block";
+        document.getElementById(421).style.display = "inline-block";
+    } else if (mode === "kartei") {
+        document.getElementById(420).style.display = "none";
+        document.getElementById(421).style.display = "none";
+    }
 
 
     // ENDLESS MODE
     if(mode === "endless") {
 
         // Set Loading Image
-        document.getElementById(1000).src = "images/loading.jpg";
+        document.getElementById(1000).src = "images/Naturraum-Loading.png";
         
 
         // Choose Random Answer
@@ -362,7 +346,7 @@ function Game() {
         document.getElementById(556).style.display = "none";
                
         // Set Loading Image
-        document.getElementById(1000).src = "images/loading.jpg";
+        document.getElementById(1000).src = "images/Naturraum-Loading.png";
         
 
         // Choose Random Answer
@@ -429,7 +413,7 @@ function Game() {
 
 
         // Set Loading Image
-        document.getElementById(1000).src = "images/loading.jpg";
+        document.getElementById(1000).src = "images/Naturraum-Loading.png";
 
         // Generate Random Question
         randomNumber = Math.floor(Math.random() * arrayAnswers.length + 1);
@@ -465,6 +449,7 @@ function Game() {
         
         // Return Vars
         return last, randomNumber, currentAnswer, started;
+    } else if (mode === "kartei") {
     }
 }
 
@@ -519,6 +504,11 @@ function showSolution() {
 
     // show answer
     document.getElementById(222).innerHTML = currentAnswer;
+
+    if (mode === "kartei") {
+        document.getElementById(2001).style.display = "inline-block";
+        document.getElementById(2002).style.display = "inline-block";
+    }
 }
 
 
@@ -741,10 +731,6 @@ function resetTimer() {
 function closeOverlay() {document.getElementById("overlay").style.display = "none";}
 
 
-
-/////////////////////////////////////////////////////////////////////////////////
-// CONFETTI.JS //
-/////////////////////////////////////////////////////////////////////////////////
 
 
 
