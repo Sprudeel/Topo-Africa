@@ -403,6 +403,7 @@ function Game() {
     // LEARN MODE
     } else if (mode == "learn") {
         
+        firstTry = true;
 
         // check if everything has already been learned
         if(correct == length) {
@@ -454,7 +455,7 @@ function Game() {
 
         
         // Return Vars
-        return last, randomNumber, currentAnswer, started;
+        return last, randomNumber, currentAnswer, started, firstTry;
     } else if (mode === "kartei") {
 
         if(correct == length) {
@@ -537,10 +538,14 @@ function checkSolution() {
         document.getElementById(420).style.boxShadow = "0px 0px 10px 10px #2aaf1eb2";
 
         // Show Correct Answer on Correct Answer Board
-        showCorrect(currentAnswer);
+        if(mode != "learn") {
+            showCorrect(currentAnswer);
+        }
 
         // Update Correct Var
-        correct++;
+        if(mode != "learn") {
+            correct++;
+        }
 
         // Start New Game
         setTimeout(() => {
@@ -548,10 +553,10 @@ function checkSolution() {
         }, 1000); 
 
         // Delete Last Question while in Learm mode
-        if (mode == "learn") {
+        if(firstTry == true) {
             arrayAnswers.splice((randomNumber - 1), 1);
-    
-            return arrayAnswers;
+            showCorrect(currentAnswer);
+            correct++;
         }
         // If answer is incorrect
     } else {
@@ -609,6 +614,11 @@ function showSolution() {
         document.getElementById(2001).style.display = "inline-block";
         document.getElementById(2002).style.display = "inline-block";
     }
+
+    if(mode == "learn") {
+        firstTry = false;
+    }
+    return firstTry;
 }
 
 

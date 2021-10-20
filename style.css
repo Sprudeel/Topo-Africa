@@ -321,11 +321,11 @@ input {
     display: inline-block;
     font-family: Archivo;
     background-color: white;
-    font-size: 14px;
+    font-size: 1.2rem;
     padding: 7px;
     border-radius: 5px;
     width: 70%;
-    color: #6cb104;
+    color: #000;
     margin-bottom: 20px
     
 }
