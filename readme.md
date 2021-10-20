@@ -13,6 +13,7 @@ This Project is being created to help people learn the Topography of Africa!
  - HTML5
  - CSS3
  - JavaScript
+ - [Confetti.js](https://github.com/Agezao/confetti-js)
 
 ## 🙋🏽‍♂️ Contributers 
 

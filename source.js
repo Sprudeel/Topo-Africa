@@ -262,6 +262,10 @@ function setSubject(inputsubject, buttonId) {
 // Game!
 function Game() {
 
+    
+    document.getElementById("check").style.display = "block";
+    document.getElementById("kartei").style.display = "block";
+
     // Show Timer Controls
     document.getElementById(555).style.display = "inline-block";
     document.getElementById(556).style.display = "inline-block";
@@ -402,8 +406,10 @@ function Game() {
 
         // check if everything has already been learned
         if(correct == length) {
-            document.getElementById(1000).src = "images/finish.jpg";
+            document.getElementById(1000).src = "images/Naturraum-Finish.png";
             document.getElementById(333).innerHTML = "Korrekt gelöst " + correct + "/" + length;
+            document.getElementById("check").style.display = "none";
+            document.getElementById("kartei").style.display = "none";
             return last, randomNumber, currentAnswer;
         }
 
@@ -450,6 +456,66 @@ function Game() {
         // Return Vars
         return last, randomNumber, currentAnswer, started;
     } else if (mode === "kartei") {
+
+        if(correct == length) {
+            document.getElementById(1000).src = "images/Naturraum-Finish.png";
+            document.getElementById(333).innerHTML = "Korrekt gelöst " + correct + "/" + length;
+            document.getElementById("check").style.display = "none";
+            document.getElementById("kartei").style.display = "none";
+            return last, randomNumber, currentAnswer;
+        }
+
+
+        // update correct counter
+        document.getElementById(333).innerHTML = "Korrekt gelöst " + correct + "/" + length;
+
+
+        // Set Loading Image
+        document.getElementById(1000).src = "images/Naturraum-Loading.png";
+        
+
+        // Choose Random Answer
+        randomNumber = Math.floor(Math.random() * arrayAnswers.length + 1);
+
+        // Make Sure it does not repeat itself ;)
+        if(randomNumber === last) {
+            randomNumber = Math.floor(Math.random() * arrayAnswers.length + 1);
+
+            if(randomNumber == last) {
+                randomNumber = Math.floor(Math.random() * arrayAnswers.length + 1);
+            }
+        }
+
+
+
+        // Set current Answers Var for CheckSolution
+        currentAnswer = arrayAnswers[randomNumber - 1];
+
+        // Set Last Var to new Answers for next run
+        last = randomNumber;
+
+        // Set Picture Name Var to change ä ü ö for more compatability!
+        let picturename = currentAnswer;
+
+        // change ae oe and ue to ä ö and ü
+        if(picturename.includes("ä")) {
+            picturename = picturename.replace("ä", "ae");
+        } else if(picturename.includes("ö")) {
+            picturename = picturename.replace("ö", "oe");
+        } else if(picturename.includes("ü")) {
+            picturename = picturename.replace("ü", "ue");
+        } 
+
+        // Set Image
+        setTimeout(() => {
+            document.getElementById(1000).src = "images/" + subject + "/" +  picturename + ".jpg"
+        }, 150); 
+        
+        
+
+        
+        // Return Var
+        return last, randomNumber, currentAnswer;
     }
 }
 
@@ -495,6 +561,40 @@ function checkSolution() {
     }
 
     
+}
+
+function evalKartei(input) {
+
+    // Block Clicks while evaluation
+    if (lastClick >= (Date.now() - delay)) {
+        lastClick = Date.now();
+        return lastClick;
+    }
+    lastClick = Date.now();
+
+
+    if(input === "again") {
+        // Start New Game
+        setTimeout(() => {
+            Game();
+        }, 500); 
+    } else if (input === "learned") {
+        // Show Correct Answer on Correct Answer Board
+        showCorrect(currentAnswer);
+
+        // Update Correct Var
+        correct++;
+
+        // Start New Game
+        setTimeout(() => {
+            Game();
+        }, 500); 
+
+        // Delete Last Question while in Learm mode
+        arrayAnswers.splice((randomNumber - 1), 1);
+    
+        return arrayAnswers;
+    }
 }
 
 
