@@ -40,26 +40,36 @@ var lastClick = 0;
 var counter = 1;
 
 
+// ANSWERS JSON
+const answers = {
 
-// Answers for Meere
-var meereAnswers = ["Atlantischer Ozean", "Benguelastrom", "Golf von Aden", "Golf von Guinea", "Indischer Ozean", "Mittelmeer", "Rotes Meer", "Strasse von Gibraltar", "Strasse von Mosambik"];
+    // Answers for Meere
+    meere: ["Atlantischer Ozean", "Benguelastrom", "Golf von Aden", "Golf von Guinea", "Indischer Ozean", "Mittelmeer", "Rotes Meer", "Strasse von Gibraltar", "Strasse von Mosambik"],
 
-// Answers for Islands
-var inselnAnswers = ["Kanarische Inseln", "Kap der Guten Hoffnung", "Madagaskar", "Mauritius", "Réunion", "Sansibar", "Seychellen", "Somali-Halbinsel"];
+    // Answers for Islands
+    inseln: ["Kanarische Inseln", "Kap der Guten Hoffnung", "Madagaskar", "Mauritius", "Réunion", "Sansibar", "Seychellen", "Somali-Halbinsel"],
 
-// Answers for Berge
-var bergAnswers = ["Drakensberge", "Hochland von äthiopien", "Hoggar", "Hoher Atlas", "Kilimandscharo", "Mount Kenia", "Sahara-Atlas", "Tell-Atlas", "Tibesti"];
+    // Answers for Berge
+    berge: ["Drakensberge", "Hochland von äthiopien", "Hoggar", "Hoher Atlas", "Kilimandscharo", "Mount Kenia", "Sahara-Atlas", "Tell-Atlas", "Tibesti"],
 
-// Answers for Flüsse
-var flussAnswers = ["Blauer Nil", "Limpopo", "Malawisee", "Niger", "Nil", "Okawango", "Oranje", "Sambesi", "Senegal", "Tanganjika-See", "Tschadsee", "Victoriasee", "Volta", "Weisser Nil", "Zaire"];
+    // Answers for Flüsse
+    fluesse: ["Blauer Nil", "Limpopo", "Malawisee", "Niger", "Nil", "Okawango", "Oranje", "Sambesi", "Senegal", "Tanganjika-See", "Tschadsee", "Victoriasee", "Volta", "Weisser Nil", "Zaire"],
 
-// Answers for Special Places
-var specialAnswers = ["Arabische Wüste", "Kalahari", "Kongo-Becken", "Libysche Wüste", "Namib", "Nubische Wüste", "Sahara", "Sahel"];
+    // Answers for Special Places
+    special: ["Arabische Wüste", "Kalahari", "Kongo-Becken", "Libysche Wüste", "Namib", "Nubische Wüste", "Sahara", "Sahel"]
+};
 
 
+
+
+/* 
+    -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    Stuff thats being done while the Page Loads
+    -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+*/
 // Hide Expand Menu & Info Buttons
-document.getElementById(400).style.display = "none";
-document.getElementById(700).style.display = "none";
+document.getElementById("menu-expand").style.display = "none";
+document.getElementById("info-expand").style.display = "none";
 
 // listen for Enter Button
 document.addEventListener("keypress", function(event) {
@@ -67,14 +77,11 @@ document.addEventListener("keypress", function(event) {
         checkSolution();
     }
 })
-
 // Set New Background
 document.getElementById(20).style.backgroundImage = "url(images/bg/bg" + Math.floor(Math.random() * 7 + 1) + ".jpg)";
 
-// Set mode if Button was clicked
-function setMode(inputmode, buttonId) {
 
-
+function resetGame() {
     // Reset Timer on Left Side
     resetTimer();
 
@@ -86,11 +93,25 @@ function setMode(inputmode, buttonId) {
     document.getElementById(500).innerHTML = "<p id='502' style='color: red; text-align: center;'>keine</p><p id=501></p>";
     document.getElementById(333).innerHTML = "Korrekt gelöst";
 
+    // Reset Game Started Value if Game has Started
+    if(started == true) {
+        started = false;
+    }
+
+    return counter, correct, started;
+}
+
+// Set mode if Button was clicked
+function setMode(inputmode, buttonId) {
+
+    // Reset Basic Stuff
+    resetGame();
+    
+
     // set all buttons to normal
-    document.getElementById(101).style.backgroundColor = "white";
-    document.getElementById(102).style.backgroundColor = "white";
-    document.getElementById(103).style.backgroundColor = "white";
-    document.getElementById(104).style.backgroundColor = "white";
+    for (let i = 1; i <= 4; i++) {
+        document.getElementById(100 + i).style.backgroundColor = "white";   
+    }
 
     // fill clicked button
     document.getElementById(buttonId).style.backgroundColor = "#6cb104";
@@ -103,10 +124,7 @@ function setMode(inputmode, buttonId) {
         Game();
     }
 
-    // Reset Game Started Value if Game has Started
-    if(started == true) {
-        started = false;
-    }
+    
 
     // Start Section for Speed Mode
     if(started === false && mode === "speed" && subject != null) {
@@ -152,22 +170,15 @@ function setMode(inputmode, buttonId) {
 
     
     // Return the selected Mode and if game started
-    return mode, started, arrayAnswers;
+    return mode, arrayAnswers;
 }
 
 
 // set subject if button was clicked
 function setSubject(inputsubject, buttonId) {
     
-    // Reset Timer on Left Side
-    resetTimer();
-
-    // Reset Correct Counter
-    counter = 1;
-    correct = 0;
-
-    // Reset Correctly Solved List
-    document.getElementById(500).innerHTML = "<p id='502' style='color: red; text-align: center;'>keine</p><p id=501></p>";
+    // Reset Basic Stuff
+    resetGame();
 
     // Set all Buttons back to normal
     for (let i = 1; i < 8; i++) {
@@ -192,19 +203,19 @@ function setSubject(inputsubject, buttonId) {
             window.location.reload(true);
             break;
         case "meere":
-            arrayAnswers = meereAnswers;
+            arrayAnswers = [].concat(answers.meere);
             break;
         case "inseln":
-            arrayAnswers = inselnAnswers;
+            arrayAnswers = [].concat(answers.inseln);
             break;
         case "fluesse":
-            arrayAnswers = flussAnswers;
+            arrayAnswers = [].concat(answers.fluesse);
             break;
         case "berge":
-            arrayAnswers = bergAnswers;
+            arrayAnswers = [].concat(answers.berge);
             break;
         case "special":
-            arrayAnswers = specialAnswers;
+            arrayAnswers = [].concat(answers.special);
             break;
     }
     
@@ -219,12 +230,6 @@ function setSubject(inputsubject, buttonId) {
         Game();
     }
 
-    
-
-    // Reset Game Started Value if Game has Started
-    if(started == true) {
-        started = false;
-    }
 
     if(started === false && mode === "speed" && subject != null) {
         started = true;
@@ -256,7 +261,7 @@ function setSubject(inputsubject, buttonId) {
     
 
     // Return Values
-    return subject, arrayAnswers, started, length;
+    return subject, arrayAnswers, length;
 }
 
 // Game!
