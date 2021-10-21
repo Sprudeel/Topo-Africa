@@ -81,6 +81,9 @@ document.addEventListener("keypress", function(event) {
 document.getElementById(20).style.backgroundImage = "url(images/bg/bg" + Math.floor(Math.random() * 7 + 1) + ".jpg)";
 
 
+
+
+
 function resetGame() {
     // Reset Timer on Left Side
     resetTimer();
@@ -101,13 +104,53 @@ function resetGame() {
     return counter, correct, started;
 }
 
+function startSpeedMode() {
+    // Set Started to True
+    started = true;
+
+    // Hide Menu
+    hideMenu();
+
+    // Hide Timer Controls
+    document.getElementById(555).style.display = "none";
+    document.getElementById(556).style.display = "none";
+
+    // Ste Text Overlay
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("overlay").innerHTML = "<p class='textoverlay2'>3</p>";
+
+
+    // display 3
+    setTimeout(() => {
+        document.getElementById("overlay").innerHTML = "<p class='textoverlay2'>2</p>";
+    }, 1000);
+
+    // display 2
+    setTimeout(() => {
+        document.getElementById("overlay").innerHTML = "<p class='textoverlay2'>1</p>";
+    }, 2000);
+
+    // display 1
+    setTimeout(() => {
+        document.getElementById("overlay").innerHTML = "<p class='textoverlay2'>GO!</p>";
+    }, 3000);
+
+    // display GO
+    setTimeout(() => {
+        document.getElementById("overlay").style.display = "none";
+        startTimer();
+    }, 3300);
+
+    return started;
+}
+
+
 // Set mode if Button was clicked
 function setMode(inputmode, buttonId) {
 
     // Reset Basic Stuff
     resetGame();
     
-
     // set all buttons to normal
     for (let i = 1; i <= 4; i++) {
         document.getElementById(100 + i).style.backgroundColor = "white";   
@@ -124,51 +167,11 @@ function setMode(inputmode, buttonId) {
         Game();
     }
 
-    
-
     // Start Section for Speed Mode
     if(started === false && mode === "speed" && subject != null) {
-
-        // Set Started to True
-        started = true;
-
-        // Hide Menu
-        hideMenu();
-
-        // Hide Timer Controls
-        document.getElementById(555).style.display = "none";
-        document.getElementById(556).style.display = "none";
-
-        // Ste Text Overlay
-        document.getElementById("overlay").style.display = "block";
-        document.getElementById("overlay").innerHTML = "<p class='textoverlay2'>3</p>";
-
-
-        // display 3
-        setTimeout(() => {
-            document.getElementById("overlay").innerHTML = "<p class='textoverlay2'>2</p>";
-        }, 1000);
-
-        // display 2
-        setTimeout(() => {
-            document.getElementById("overlay").innerHTML = "<p class='textoverlay2'>1</p>";
-        }, 2000);
-
-        // display 1
-        setTimeout(() => {
-            document.getElementById("overlay").innerHTML = "<p class='textoverlay2'>GO!</p>";
-        }, 3000);
-
-        // display GO
-        setTimeout(() => {
-            document.getElementById("overlay").style.display = "none";
-            startTimer();
-        }, 3300);
-
-        
+        startSpeedMode();
     }
 
-    
     // Return the selected Mode and if game started
     return mode, arrayAnswers;
 }
@@ -190,7 +193,6 @@ function setSubject(inputsubject, buttonId) {
 
     // set the subject in var
     subject = inputsubject;
-
 
     // Set ArrayAnswers for safety reasons
     switch(subject) {
@@ -218,8 +220,6 @@ function setSubject(inputsubject, buttonId) {
             arrayAnswers = [].concat(answers.special);
             break;
     }
-    
-
 
     // Set Length var for Correctly Solved Board
     length = arrayAnswers.length;
@@ -230,44 +230,16 @@ function setSubject(inputsubject, buttonId) {
         Game();
     }
 
-
+    // Start Section for Speed Mode
     if(started === false && mode === "speed" && subject != null) {
-        started = true;
-        hideMenu();
-        document.getElementById(555).style.display = "none";
-        document.getElementById(556).style.display = "none";
-        document.getElementById("overlay").style.display = "block";
-        document.getElementById("overlay").innerHTML = "<p class='textoverlay2'>3</p>";
-
-        setTimeout(() => {
-            document.getElementById("overlay").innerHTML = "<p class='textoverlay2'>2</p>";
-        }, 1000);
-
-        setTimeout(() => {
-            document.getElementById("overlay").innerHTML = "<p class='textoverlay2'>1</p>";
-        }, 2000);
-
-        setTimeout(() => {
-            document.getElementById("overlay").innerHTML = "<p class='textoverlay2'>GO!</p>";
-        }, 3000);
-
-        setTimeout(() => {
-            document.getElementById("overlay").style.display = "none";
-            startTimer();
-        }, 3300);
-
-        
+        startSpeedMode();
     }
-    
 
     // Return Values
     return subject, arrayAnswers, length;
 }
 
-// Game!
-function Game() {
-
-    
+function resetBeforeGame() {
     document.getElementById("check").style.display = "block";
     document.getElementById("kartei").style.display = "block";
 
@@ -293,6 +265,13 @@ function Game() {
         document.getElementById(420).style.display = "none";
         document.getElementById(421).style.display = "none";
     }
+}
+
+// Game!
+function Game() {
+
+    // Reset Basic Stuff!
+    resetBeforeGame();
 
 
     // ENDLESS MODE
@@ -300,7 +279,6 @@ function Game() {
 
         // Set Loading Image
         document.getElementById(1000).src = "images/Naturraum-Loading.png";
-        
 
         // Choose Random Answer
         randomNumber = Math.floor(Math.random() * arrayAnswers.length + 1);
@@ -313,8 +291,6 @@ function Game() {
                 randomNumber = Math.floor(Math.random() * arrayAnswers.length + 1);
             }
         }
-
-
 
         // Set current Answers Var for CheckSolution
         currentAnswer = arrayAnswers[randomNumber - 1];
@@ -339,8 +315,6 @@ function Game() {
             document.getElementById(1000).src = "images/" + subject + "/" +  picturename + ".jpg"
         }, 150); 
         
-        
-
         
         // Return Var
         return last, randomNumber, currentAnswer;
@@ -525,6 +499,7 @@ function Game() {
     }
 }
 
+
 // Check if Solution is Correct
 function checkSolution() {
 
@@ -662,9 +637,6 @@ function expandMenu() {
 }
 
 
-
-
-
 function hideInfo() {
 
     // fancy Animation
@@ -700,8 +672,6 @@ function expandInfo() {
 }
 
 
-
-
 function showCorrect(name) {
 
     if(counter == 1) {
@@ -720,8 +690,6 @@ function showCorrect(name) {
     counter++;
     return counter;
 }
-
-
 
 // Time Display on Info Board
 setInterval(() => {
@@ -840,7 +808,6 @@ function resetTimer() {
 
     return hr, min, sec;
 }
-
 
 // close overlay
 function closeOverlay() {document.getElementById("overlay").style.display = "none";}
