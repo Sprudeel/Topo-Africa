@@ -1,3 +1,18 @@
+
+/* 
+    Part of the Topo Africa Learner!
+
+    Made by @Sprudeel (GitHub)
+
+    Repository: https://github.com/Sprudeel/topo-africa
+
+    October 2021, Switzerland
+
+*/
+
+
+
+
 /* Standart Shit */
 * {margin:0px; padding:0px}
 
@@ -31,6 +46,8 @@
     font-size: 15px;
 }
 
+
+
 /*#########################
 ##        Content         #
 #########################*/
@@ -49,6 +66,9 @@ body {
 .png {
     vertical-align: -7px;
 }
+
+
+
 
 /*#########################
 ##        Menu            #

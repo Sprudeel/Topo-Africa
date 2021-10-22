@@ -1,8 +1,15 @@
 
 
-/////////////////////////////////
-//             GAME            //
-/////////////////////////////////
+/* 
+    Part of the Topo Africa Learner!
+
+    Made by @Sprudeel (GitHub)
+
+    Repository: https://github.com/Sprudeel/topo-africa
+
+    October 2021, Switzerland
+
+*/
 
 // Var for current mode & subject
 var mode;
@@ -62,24 +69,20 @@ const answers = {
 
 
 
-/* 
-    -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+/*  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
     Stuff thats being done while the Page Loads
-    -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-*/
+    -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-  */
 // Hide Expand Menu & Info Buttons
 document.getElementById("menu-expand").style.display = "none";
 document.getElementById("info-expand").style.display = "none";
-
+// Set New Background
+document.getElementById(20).style.backgroundImage = "url(images/bg/bg" + Math.floor(Math.random() * 7 + 1) + ".jpg)";
 // listen for Enter Button
 document.addEventListener("keypress", function(event) {
     if(event.keyCode === 13) {
         checkSolution();
     }
 })
-// Set New Background
-document.getElementById(20).style.backgroundImage = "url(images/bg/bg" + Math.floor(Math.random() * 7 + 1) + ".jpg)";
-
 
 
 
