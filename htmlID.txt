@@ -1,0 +1,32 @@
+ID | What?
+
+20 | Body 
+69 | Game
+
+99 | Menu
+101 - 104 | Choose Mode
+201 - 207 | Choose Theme
+222 | Show Solution
+300 | Close Menus
+301 | Close Info
+333 | Correctly Solved Title
+420 | Input Field
+421 | Submit Button
+500 | Correct Container
+502 | None Solved
+501 | Default Solved
+555 | Start Timer
+556 | Reset Timer
+600 | Date and Time
+690 | Timer
+800 | Info Board
+900 | Expand Menu
+901 | Expand Info
+1000 | Question Image
+2001 | Nochmals Button
+2002 | Kann Ich! Button
+
+
+kartei | Kartei Buttons
+check | Input,Check Solution and showSolution
+credit | Version and created by on Title Bar

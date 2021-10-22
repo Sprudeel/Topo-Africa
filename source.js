@@ -73,8 +73,8 @@ const answers = {
     Stuff thats being done while the Page Loads
     -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-  */
 // Hide Expand Menu & Info Buttons
-document.getElementById("menu-expand").style.display = "none";
-document.getElementById("info-expand").style.display = "none";
+document.getElementById(900).style.display = "none";
+document.getElementById(901).style.display = "none";
 // Set New Background
 document.getElementById(20).style.backgroundImage = "url(images/bg/bg" + Math.floor(Math.random() * 7 + 1) + ".jpg)";
 // listen for Enter Button
@@ -618,7 +618,7 @@ function hideMenu() {
         iterations: 1
     }
     menu.animate(animation, timing);
-    setTimeout(function() { document.getElementById(400).style.display = "block"; }, 500);
+    setTimeout(function() { document.getElementById(900).style.display = "block"; }, 500);
 }
 
 
@@ -636,7 +636,7 @@ function expandMenu() {
         iterations: 1
     }
     menu.animate(animation, timing);
-    document.getElementById(400).style.display = "none";
+    document.getElementById(900).style.display = "none";
 }
 
 
@@ -653,7 +653,7 @@ function hideInfo() {
         iterations: 1
     }
     menu.animate(animation, timing);
-    setTimeout(function() { document.getElementById(700).style.display = "block"; }, 500);
+    setTimeout(function() { document.getElementById(901).style.display = "block"; }, 500);
 }
 
 
@@ -671,7 +671,7 @@ function expandInfo() {
         iterations: 1
     }
     menu.animate(animation, timing);
-    document.getElementById(700).style.display = "none";
+    document.getElementById(901).style.display = "none";
 }
 
 
