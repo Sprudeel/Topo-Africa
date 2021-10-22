@@ -1,13 +1,13 @@
 
 
 /* 
-    Part of the Topo Africa Learner!
+    Part of the Topo Africa Learner!;
 
-    Made by @Sprudeel (GitHub)
+    Made by @Sprudeel (GitHub);
 
-    Repository: https://github.com/Sprudeel/topo-africa
+    Repository: https://github.com/Sprudeel/topo-africa;
 
-    October 2021, Switzerland
+    October 2021, Switzerland;
 
 */
 

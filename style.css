@@ -1,12 +1,12 @@
 
 /* 
-    Part of the Topo Africa Learner!
+    Part of the Topo Africa Learner!;
 
-    Made by @Sprudeel (GitHub)
+    Made by @Sprudeel (GitHub);
 
-    Repository: https://github.com/Sprudeel/topo-africa
+    Repository: https://github.com/Sprudeel/topo-africa;
 
-    October 2021, Switzerland
+    October 2021, Switzerland;
 
 */
 
@@ -22,6 +22,8 @@
 ##        Title           #
 #########################*/
 
+
+/* Entire Top Bar */
 .title {
     display: flex;
     font-family: Archivo;
@@ -31,16 +33,22 @@
     padding: 20px;
     text-align: center;
 }
+
+/* Angaben ohne Gewähr */
 .version {
     flex: 1;
     font-size: 15px;
 }
+
+/* Topo Afrika */
 .name {
     flex: 5;
     font-size: 40px;
     font-weight: bold;
     text-align: center;
 }
+
+/* Version and created by */
 .credit {
     flex: 1;
     font-size: 15px;
@@ -51,6 +59,8 @@
 /*#########################
 ##        Content         #
 #########################*/
+
+/* Body */
 body {  
     
     background-image: url('images/bg/bg1.jpg');
@@ -58,11 +68,15 @@ body {
     background-size: cover;
     overflow: hidden;
 }
+
+/* Container of entire Game (Menu, Info and Game) */
 .content {
     height: 95vh;
     display: flex;
     overflow-y: scroll;
 }
+
+/* Align Goole Icons Vertically Centered */
 .png {
     vertical-align: -7px;
 }
@@ -73,6 +87,8 @@ body {
 /*#########################
 ##        Menu            #
 #########################*/
+
+/* Menu */
 .menu {
     background-color: white;
     flex: 1;
@@ -83,6 +99,8 @@ body {
     border: 1px;
     border-radius: 0px 10px 10px 0px;
 }
+
+/* Choose Mode Title + Choose Theme Title */
 .choosemode {
     font-size: 18px;
     font-family: Archivo;
@@ -90,6 +108,8 @@ body {
     text-align: center;
     padding: 10px;
 }
+
+/* Mode Buttons */
 .mode {
     margin: 5px;
     padding: 7px;
@@ -99,16 +119,22 @@ body {
     border-width: 2px;
     border-color: #6cb104;
 }
+
+/* Mode Buttons Hover */
 .mode:hover {
     animation: btnhover 500ms forwards;
     cursor: pointer;
 }
+
+/* Mode Buttons Animation */
 @keyframes btnhover {
     to {
         background-color: rgb(108, 177, 4);
         color: white;
     }
 }
+
+/* Choose Theme Buttons*/
 .choose {
     margin: 3%;
     padding: 3%;
@@ -118,16 +144,22 @@ body {
     border-width: 2px;
     border-color: #2d73f3;
 }
+
+/* Choose Theme Button Hover */
 .choose:hover {
     animation: choosehover 500ms forwards;
     cursor: pointer;
 }
+
+/* Choose Theme Button Animation */
 @keyframes choosehover {
     to {
         background-color: rgb(45, 115, 243);
         color: white;
     }
 }
+
+/* Hide Menu Button */
 .close {
     margin: 2%;
     margin-bottom: 5%;
@@ -139,10 +171,14 @@ body {
     border-width: 2px;
     border-color: black;
 }
+
+/* Hide Menu Hover */
 .close:hover {
     background-color: black;
     color: white;
 }
+
+/* Expand Button */
 .expand {
     position: absolute;
     bottom: 50%;
@@ -152,10 +188,14 @@ body {
     border-width: 2px;
     border-color: black;
 }
+
+/* Expand Button Hover */
 .expand:hover {
     background-color: black;
     color: white;
 }
+
+/* Grid Container for Mode Buttons */
 .container-mode {
     display: grid; 
     grid-auto-columns: 1fr; 
@@ -174,6 +214,8 @@ body {
 /*#########################
 ##        Info            #
 #########################*/
+
+/* Info Panel Container */
 .info {
     background-color: white;
     flex: 1;
@@ -187,6 +229,8 @@ body {
     white-space: nowrap;
     padding-bottom: 20px;
 }
+
+/* H3 With Line */
 h3 {
     width: 100%; 
    text-align: center; 
@@ -200,6 +244,8 @@ h3 span {
     background:#fff; 
     padding:0 10px; 
 }
+
+/* Subtitles */
 .subtitle { 
     text-align: center;
     color: grey;
@@ -209,6 +255,8 @@ h3 span {
     margin-right: 10px;
     margin-left: 10px;
 }
+
+/* Container of correctly solved */
 .correct-container {
     font-family: Archivo;
     font-size: 12px;
@@ -220,16 +268,13 @@ h3 span {
     max-height: 20vh;
     overflow-y: scroll;
 }
+
+/* Correctly Solved */
 .info1 {
     padding-bottom: 20px;
 }
-.small {
-    font-size: 15px;
-}
-.png2 {
-    vertical-align: -3px;
-}
 
+/* SCROLLBAR */
 .correct-container::-webkit-scrollbar-track
 {
   box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -251,18 +296,25 @@ h3 span {
 }
 
 
+/* Current Time */
 .currenttime {
     font-family: Archivo;
     font-size: 27px;
     padding: 10px;
 }
+
+/* start and reset Timer Button Margin Bottom */
 .pad {
     margin-bottom: 20px;
 }
+
+/* Time And Date */
 .time {
     font-family: Archivo;
     font-size: 18px;
 }
+
+/* Expand Info Board */
 .expand2 {
     right: 0%;
     position: absolute;
@@ -283,18 +335,23 @@ h3 span {
 /*############################*/
 /*          GAME              */
 /*############################*/
+
+/* Game Container */
 .game {
     text-align: center;
     flex: 5;
     height: 100%;
     margin-top: 5vh;
 }
+
+/* Image with Question */
 img {
     height: 70vh;
     margin-bottom: 10px;
     box-shadow: 0px 0px 3px 3px #0000006e;
 }
 
+/* Submit Button */
 .submit {
     margin: 2px;
     padding: 10px;
@@ -307,16 +364,17 @@ img {
     margin-bottom: 20px;
     margin-right: 30px;
 }
-
 .submit:hover {
     background-color: black;
     color: white;
 }
 
+/* Default Button Font Family */
 button {
     font-family: Archivo;
 }
 
+/* Input Field */
 input {
     padding: 10px;
     border: 0px;
@@ -325,6 +383,8 @@ input {
     font-size: 14px;
     font-family: Archivo;
 }
+
+/* show Solution */
 .solution {
     text-align: center;
     background-color: white;
@@ -333,10 +393,13 @@ input {
     width: 40vh;
     display: none;
 }
+
+/* For Karteikarten Mode */
 .kart {
     display: none;
 }
 
+/* Default Text Settings */
 .text {
     display: inline-block;
     font-family: Archivo;
@@ -366,6 +429,8 @@ input {
     cursor: pointer; /* Add a pointer on hover */
 }
 
+
+/* Overlay Stuff */
 .textoverlay {
     text-align: center;
     float: middle;
