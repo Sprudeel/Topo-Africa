@@ -46,6 +46,9 @@ var lastClick = 0;
 // Counter for Correcly Solved Board
 var counter = 1;
 
+// show if it was first try
+var firstTry = true;
+
 
 // ANSWERS JSON
 const answers = {

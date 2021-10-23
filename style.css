@@ -295,6 +295,13 @@ h3 span {
   background-color: #302c2c;
 }
 
+/* Smaller Icon for Showcorrect */
+.small {
+    font-size: 15px;
+}
+.png2 {
+    vertical-align: -3px;
+}
 
 /* Current Time */
 .currenttime {
