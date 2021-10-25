@@ -2,7 +2,7 @@
 
 Welcome to this Repository containing the Code of the Topo Learner Africa
 
-Game not yet Online... :(
+Beta Testing started...
 
 ## 📙 About this Project
 This Project is being created to help people learn the Topography of Africa!
