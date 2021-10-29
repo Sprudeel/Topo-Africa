@@ -25,7 +25,7 @@ ID | What?
 1000 | Question Image
 2001 | Nochmals Button
 2002 | Kann Ich! Button
-
+3000+ | Show Correct
 
 kartei | Kartei Buttons
 check | Input,Check Solution and showSolution

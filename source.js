@@ -53,6 +53,9 @@ var firstTry = true;
 // ANSWERS JSON
 const answers = {
 
+    // Answers for Staaten
+    staaten: ["Ägypten", "Äquatorialguinea", "Äthiopien", "Algerien", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Côte d'Ivoire", "Dschibuti", "Eritrea", "Gabun", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kamerun", "Kenia", "Komoren", "Kongo", "Lesotho", "Liberia", "Libyen", "Madagaskar", "Malawi", "Mali", "Marokko", "Mauretanien", "Mauritius", "Mosambik", "Namibia", "Niger", "Nigeria", "Ruanda", "Westsahara", "Westsahara", "São Tomé u. Principe", "Senegal", "Seychellen", "Sierra Leone", "Simbabwe", "Somalia", "Sudan", "Südsudan", "Südafrika", "Südafrika", "Tansania", "Togo", "Tschad", "Tunesien", "Uganda", "Demokr. Rep. Kongo", "Zentralafrik. Rep."],
+
     // Answers for Meere
     meere: ["Atlantischer Ozean", "Benguelastrom", "Golf von Aden", "Golf von Guinea", "Indischer Ozean", "Mittelmeer", "Rotes Meer", "Strasse von Gibraltar", "Strasse von Mosambik"],
 
@@ -99,7 +102,7 @@ function resetGame() {
     correct = 0;
 
     // Reset Correctly Solved List
-    document.getElementById(500).innerHTML = "<p id='502' style='color: red; text-align: center;'>keine</p><p id=501></p>";
+    document.getElementById(500).innerHTML = "<p id='3002' style='color: red; text-align: center;'>keine</p><p id=3001></p>";
     document.getElementById(333).innerHTML = "Korrekt gelöst";
 
     // Reset Game Started Value if Game has Started
@@ -203,8 +206,7 @@ function setSubject(inputsubject, buttonId) {
     // Set ArrayAnswers for safety reasons
     switch(subject) {
         case "staaten":
-            window.alert("Not yet Done!")
-            window.location.reload(true);
+            arrayAnswers = [].concat(answers.staaten);
             break;
         case "staedte":
             window.alert("Not yet Done!")
@@ -314,7 +316,9 @@ function Game() {
             picturename = picturename.replace("ö", "oe");
         } else if(picturename.includes("ü")) {
             picturename = picturename.replace("ü", "ue");
-        } 
+        } else if(picturename.includes("Ä")) {
+            picturename = picturename.replace("Ä", "Ae");
+        }
 
         // Set Image
         setTimeout(() => {
@@ -367,7 +371,9 @@ function Game() {
             picturename = picturename.replace("ö", "oe");
         } else if(picturename.includes("ü")) {
             picturename = picturename.replace("ü", "ue");
-        } 
+        } else if(picturename.includes("Ä")) {
+            picturename = picturename.replace("Ä", "Ae");
+        }
 
         // Set Image
         setTimeout(() => {
@@ -420,14 +426,16 @@ function Game() {
         // Set Picture Name Var to change ä ü ö for more compatability!
         let picturename = currentAnswer;
 
-        // change ae oe and ue to ä ö and ü
-        if(picturename.includes("ä")) {
-            picturename = picturename.replace("ä", "ae");
-        } else if(picturename.includes("ö")) {
-            picturename = picturename.replace("ö", "oe");
-        } else if(picturename.includes("ü")) {
-            picturename = picturename.replace("ü", "ue");
-        } 
+       // change ae oe and ue to ä ö and ü
+       if(picturename.includes("ä")) {
+        picturename = picturename.replace("ä", "ae");
+    } else if(picturename.includes("ö")) {
+        picturename = picturename.replace("ö", "oe");
+    } else if(picturename.includes("ü")) {
+        picturename = picturename.replace("ü", "ue");
+    } else if(picturename.includes("Ä")) {
+        picturename = picturename.replace("Ä", "Ae");
+    }
 
         // Set Started var to true
         started = true;
@@ -490,7 +498,9 @@ function Game() {
             picturename = picturename.replace("ö", "oe");
         } else if(picturename.includes("ü")) {
             picturename = picturename.replace("ü", "ue");
-        } 
+        } else if(picturename.includes("Ä")) {
+            picturename = picturename.replace("Ä", "Ae");
+        }
 
         // Set Image
         setTimeout(() => {
@@ -681,16 +691,16 @@ function expandInfo() {
 function showCorrect(name) {
 
     if(counter == 1) {
-        document.getElementById(502).innerHTML = " ";
+        document.getElementById(3002).innerHTML = " ";
     }
 
     // Create a new Element to host all informations
-    var container = document.getElementById(501);
+    var container = document.getElementById(3001);
     var p = document.createElement("p");
-    p.id = counter;
+    p.id = 3002 + counter;
     container.insertBefore(p, null);
     // Fill Element
-    document.getElementById(counter).innerHTML = "<span class='material-icons md-18 png2 small'>check</span> " + name;
+    document.getElementById(3002 + counter).innerHTML = "<span class='material-icons md-18 png2 small'>check</span> " + name;
     
 
     counter++;
@@ -705,9 +715,9 @@ setInterval(() => {
 
     var displaydate = weekdays[date.getDay()] + " " + date.getDate() + ". " + months[date.getMonth()] + " " + date.getFullYear() + "<br>" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds(); 
 
-    document.getElementById(600).innerHTML = displaydate;
+    document.getElementById("timer").innerHTML = displaydate;
     
-}, 10);
+}, 100);
 
 
 
