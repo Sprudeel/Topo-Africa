@@ -66,7 +66,7 @@ const answers = {
     inseln: ["Kanarische Inseln", "Kap der Guten Hoffnung", "Madagaskar", "Mauritius", "Réunion", "Sansibar", "Seychellen", "Somali-Halbinsel"],
 
     // Answers for Berge
-    berge: ["Drakensberge", "Hochland von äthiopien", "Hoggar", "Hoher Atlas", "Kilimandscharo", "Mount Kenia", "Sahara-Atlas", "Tell-Atlas", "Tibesti"],
+    berge: ["Drakensberge", "Hochland von Äthiopien", "Hoggar", "Hoher Atlas", "Kilimandscharo", "Mount Kenia", "Sahara-Atlas", "Tell-Atlas", "Tibesti"],
 
     // Answers for Flüsse
     fluesse: ["Blauer Nil", "Limpopo", "Malawisee", "Niger", "Nil", "Okawango", "Oranje", "Sambesi", "Senegal", "Tanganjika-See", "Tschadsee", "Victoriasee", "Volta", "Weisser Nil", "Zaire"],
@@ -546,47 +546,110 @@ function Game() {
 // Check if Solution is Correct
 function checkSolution() {
 
-    // If answer is correct go here
-    if(currentAnswer.toLowerCase() == document.getElementById(420).value.toLowerCase()) {
-        
-        // Block Clicks while evaluation
-        if (lastClick >= (Date.now() - delay)) {
+    if(document.getElementById("myToggle").checked === true) {
+        var correctCounter = 0;
+        var currentSolution = document.getElementById(420).value.toLowerCase();
+        for (let i = 0; i <= currentSolution.length; i++) {
+
+            if (currentSolution.charAt(i) === currentAnswer.toLowerCase().charAt(i)) {
+                correctCounter++;
+            } else if (currentAnswer.toLowerCase().charAt(i) === "è" && currentSolution.charAt(i) === "e" ) {
+                correctCounter++;
+            } else if (currentAnswer.toLowerCase().charAt(i) === "é" && currentSolution.charAt(i) === "e" ) {
+                correctCounter++;
+            } else if (currentAnswer.toLowerCase().charAt(i) === "ã" && currentSolution.charAt(i) === "a" ) {
+                correctCounter++;
+            } else if (currentAnswer.toLowerCase().charAt(i) === "ô" && currentSolution.charAt(i) === "o" ) {
+                correctCounter++;
+            }  
+        }
+
+        if(correctCounter === currentSolution.length + 1) {
+
+            // Block Clicks while evaluation
+            if (lastClick >= (Date.now() - delay)) {
+                lastClick = Date.now();
+                return lastClick;
+            }
             lastClick = Date.now();
-            return lastClick;
+
+            // Set Box Shadows to Green
+            document.getElementById(1000).style.boxShadow = "0px 0px 10px 10px #2aaf1eb2";
+            document.getElementById(420).style.boxShadow = "0px 0px 10px 10px #2aaf1eb2";
+
+            // Show Correct Answer on Correct Answer Board
+            if(mode != "learn") {
+                showCorrect(currentAnswer);
+            }
+
+            // Update Correct Var
+            if(mode != "learn") {
+                correct++;
+            }
+
+            // Start New Game
+            setTimeout(() => {
+                Game();
+            }, 1000); 
+
+            // Delete Last Question while in Learm mode
+            if(firstTry == true && mode !== "endless" && mode !== "speed") {
+                arrayAnswers.splice((randomNumber - 1), 1);
+                showCorrect(currentAnswer);
+                correct++;
+            }
+
+        } else {
+            // Set Box Shadow to Red
+            document.getElementById(1000).style.boxShadow = "0px 0px 10px 10px #b91313ce";
+            document.getElementById(420).style.boxShadow = "0px 0px 10px 10px #b91313ce";
         }
-        lastClick = Date.now();
 
-        // Set Box Shadows to Green
-        document.getElementById(1000).style.boxShadow = "0px 0px 10px 10px #2aaf1eb2";
-        document.getElementById(420).style.boxShadow = "0px 0px 10px 10px #2aaf1eb2";
+    } else if (document.getElementById("myToggle").checked === false) {
+            // If answer is correct go here
+        if(currentAnswer.toLowerCase() == document.getElementById(420).value.toLowerCase()) {
+            
+            // Block Clicks while evaluation
+            if (lastClick >= (Date.now() - delay)) {
+                lastClick = Date.now();
+                return lastClick;
+            }
+            lastClick = Date.now();
 
-        // Show Correct Answer on Correct Answer Board
-        if(mode != "learn") {
-            showCorrect(currentAnswer);
+            // Set Box Shadows to Green
+            document.getElementById(1000).style.boxShadow = "0px 0px 10px 10px #2aaf1eb2";
+            document.getElementById(420).style.boxShadow = "0px 0px 10px 10px #2aaf1eb2";
+
+            // Show Correct Answer on Correct Answer Board
+            if(mode != "learn") {
+                showCorrect(currentAnswer);
+            }
+
+            // Update Correct Var
+            if(mode != "learn") {
+                correct++;
+            }
+
+            // Start New Game
+            setTimeout(() => {
+                Game();
+            }, 1000); 
+
+            // Delete Last Question while in Learm mode
+            if(firstTry == true && mode !== "endless" && mode !== "speed") {
+                arrayAnswers.splice((randomNumber - 1), 1);
+                showCorrect(currentAnswer);
+                correct++;
+            }
+            // If answer is incorrect
+        } else {
+            // Set Box Shadow to Red
+            document.getElementById(1000).style.boxShadow = "0px 0px 10px 10px #b91313ce";
+            document.getElementById(420).style.boxShadow = "0px 0px 10px 10px #b91313ce";
         }
-
-        // Update Correct Var
-        if(mode != "learn") {
-            correct++;
-        }
-
-        // Start New Game
-        setTimeout(() => {
-            Game();
-        }, 1000); 
-
-        // Delete Last Question while in Learm mode
-        if(firstTry == true) {
-            arrayAnswers.splice((randomNumber - 1), 1);
-            showCorrect(currentAnswer);
-            correct++;
-        }
-        // If answer is incorrect
-    } else {
-        // Set Box Shadow to Red
-        document.getElementById(1000).style.boxShadow = "0px 0px 10px 10px #b91313ce";
-        document.getElementById(420).style.boxShadow = "0px 0px 10px 10px #b91313ce";
     }
+
+    
 
     
 }

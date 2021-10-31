@@ -19,6 +19,7 @@ ID | What?
 556 | Reset Timer
 600 | Date and Time
 690 | Timer
+700 - 799 | Settings on InfoBoard
 800 | Info Board
 900 | Expand Menu
 901 | Expand Info

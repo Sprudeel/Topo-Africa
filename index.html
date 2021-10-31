@@ -16,7 +16,7 @@
 
     <!-- Google Imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;500;900&display=swap" rel="stylesheet">
 
@@ -183,9 +183,31 @@
                 <!-- The Time and date -->
                 <div class="time" id="timer"></div>
 
-                <!-- Close Menu Button -->
-                <button id="301" class="close" onclick="hideInfo()">Info schliessen<span class="material-icons md-18 png">chevron_right</span></button>
+                
             </div>
+
+            <div class="info4">
+                <br>
+                <!-- Title -->
+                <div class="subtitle">
+
+                    <h3>
+                        <span class="subtitle">Einstellungen</span>
+                    </h3>
+
+                </div>
+            <div class="toggle-container" style="position: relative">
+                <!-- Rounded switch -->
+                <label class="toggle" for="myToggle" id="701">
+                    <input class="toggle__input" name="" type="checkbox" id="myToggle">
+                    <div class="toggle__fill"></div>
+                </label>
+                <label for="701" class="switchlabel">nettes Korrigieren <span title="Wenn aktiviert, werden bei der Überprüfung Ihrer Lösung jegliche Sonderzeichen, wie z.B. è, ã oder ô, ignoriert! Info: Der Bindestrich - gehört nicht zu diesen Sonderzeichen!" class="material-icons png">help_outline</span></label>
+            </div>
+            <!-- Close Menu Button -->
+            <button id="301" class="close" style="float: bottom;" onclick="hideInfo()">Info schliessen<span class="material-icons md-18 png">chevron_right</span></button>
+            </div>
+            
         </div>  
     </div>
 
