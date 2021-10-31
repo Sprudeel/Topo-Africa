@@ -53,6 +53,9 @@ var firstTry = true;
 // ANSWERS JSON
 const answers = {
 
+    // Answers for Städte
+    staedte: ["Alexandria", "Assuan", "Kairo", "Addis Abeba", "Algier", "Oran", "Accra", "Mombasa", "Nairobi", "Monrovia", "Bengasi", "Tripolis", "Casablanca", "Fès", "Marrakesch", "Rabat", "Lagos", "Dakar", "Harare", "Mogadischu", "Khartoum", "Durban", "Johannesburg", "Kapstadt", "Kapstadt", "Port Elisabeth", "Daressalam", "Tunis", "Kampala", "Kinshasa"],
+
     // Answers for Staaten
     staaten: ["Ägypten", "Äquatorialguinea", "Äthiopien", "Algerien", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Côte d'Ivoire", "Dschibuti", "Eritrea", "Gabun", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kamerun", "Kenia", "Komoren", "Kongo", "Lesotho", "Liberia", "Libyen", "Madagaskar", "Malawi", "Mali", "Marokko", "Mauretanien", "Mauritius", "Mosambik", "Namibia", "Niger", "Nigeria", "Ruanda", "Westsahara", "Westsahara", "São Tomé u. Principe", "Senegal", "Seychellen", "Sierra Leone", "Simbabwe", "Somalia", "Sudan", "Südsudan", "Südafrika", "Südafrika", "Tansania", "Togo", "Tschad", "Tunesien", "Uganda", "Demokr. Rep. Kongo", "Zentralafrik. Rep."],
 
@@ -209,8 +212,7 @@ function setSubject(inputsubject, buttonId) {
             arrayAnswers = [].concat(answers.staaten);
             break;
         case "staedte":
-            window.alert("Not yet Done!")
-            window.location.reload(true);
+            arrayAnswers = [].concat(answers.staedte);
             break;
         case "meere":
             arrayAnswers = [].concat(answers.meere);
