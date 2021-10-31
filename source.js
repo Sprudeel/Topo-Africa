@@ -288,7 +288,12 @@ function Game() {
     if(mode === "endless") {
 
         // Set Loading Image
-        document.getElementById(1000).src = "images/Naturraum-Loading.png";
+        if(subject === "staedte" || subject === "staaten") {
+            document.getElementById(1000).src = "images/Politisch-Loading.png";
+        } else {
+            document.getElementById(1000).src = "images/Naturraum-Loading.png";
+        }
+
 
         // Choose Random Answer
         randomNumber = Math.floor(Math.random() * arrayAnswers.length + 1);
@@ -341,7 +346,11 @@ function Game() {
         document.getElementById(556).style.display = "none";
                
         // Set Loading Image
-        document.getElementById(1000).src = "images/Naturraum-Loading.png";
+        if(subject === "staedte" || subject === "staaten") {
+            document.getElementById(1000).src = "images/Politisch-Loading.png";
+        } else {
+            document.getElementById(1000).src = "images/Naturraum-Loading.png";
+        }
         
 
         // Choose Random Answer
@@ -400,7 +409,11 @@ function Game() {
 
         // check if everything has already been learned
         if(correct == length) {
-            document.getElementById(1000).src = "images/Naturraum-Finish.png";
+            if(subject === "staedte" || subject === "staaten") {
+                document.getElementById(1000).src = "images/Politisch-Finish.png";
+            } else {
+                document.getElementById(1000).src = "images/Naturraum-Finish.png";
+            }
             document.getElementById(333).innerHTML = "Korrekt gelöst " + correct + "/" + length;
             document.getElementById("check").style.display = "none";
             document.getElementById("kartei").style.display = "none";
@@ -413,7 +426,11 @@ function Game() {
 
 
         // Set Loading Image
-        document.getElementById(1000).src = "images/Naturraum-Loading.png";
+        if(subject === "staedte" || subject === "staaten") {
+            document.getElementById(1000).src = "images/Politisch-Loading.png";
+        } else {
+            document.getElementById(1000).src = "images/Naturraum-Loading.png";
+        }
 
         // Generate Random Question
         randomNumber = Math.floor(Math.random() * arrayAnswers.length + 1);
@@ -454,7 +471,11 @@ function Game() {
     } else if (mode === "kartei") {
 
         if(correct == length) {
-            document.getElementById(1000).src = "images/Naturraum-Finish.png";
+            if(subject === "staedte" || subject === "staaten") {
+                document.getElementById(1000).src = "images/Politisch-Finish.png";
+            } else {
+                document.getElementById(1000).src = "images/Naturraum-Finish.png";
+            }
             document.getElementById(333).innerHTML = "Korrekt gelöst " + correct + "/" + length;
             document.getElementById("check").style.display = "none";
             document.getElementById("kartei").style.display = "none";
@@ -467,7 +488,11 @@ function Game() {
 
 
         // Set Loading Image
-        document.getElementById(1000).src = "images/Naturraum-Loading.png";
+        if(subject === "staedte" || subject === "staaten") {
+            document.getElementById(1000).src = "images/Politisch-Loading.png";
+        } else {
+            document.getElementById(1000).src = "images/Naturraum-Loading.png";
+        }
         
 
         // Choose Random Answer
