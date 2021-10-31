@@ -2,7 +2,7 @@
 
 Welcome to this Repository containing the Code of the Topo Learner Africa
 
-Beta Testing started...
+Play here: [TopoAfrica](https://lchsd.ch/projects/topo_africa/)!
 
 ## 📙 About this Project
 This Project is being created to help people learn the Topography of Africa!
