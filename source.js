@@ -54,10 +54,10 @@ var firstTry = true;
 const answers = {
 
     // Answers for Städte
-    staedte: ["Alexandria", "Assuan", "Kairo", "Addis Abeba", "Algier", "Oran", "Accra", "Mombasa", "Nairobi", "Monrovia", "Bengasi", "Tripolis", "Casablanca", "Fès", "Marrakesch", "Rabat", "Lagos", "Dakar", "Harare", "Mogadischu", "Khartoum", "Durban", "Johannesburg", "Kapstadt", "Kapstadt", "Port Elisabeth", "Daressalam", "Tunis", "Kampala", "Kinshasa"],
+    staedte: ["Alexandria", "Assuan", "Kairo", "Addis Abeba", "Algier", "Oran", "Accra", "Mombasa", "Nairobi", "Monrovia", "Bengasi", "Tripolis", "Casablanca", "Fès", "Marrakesch", "Rabat", "Lagos", "Dakar", "Harare", "Mogadischu", "Khartoum", "Durban", "Johannesburg", "Kapstadt", "Kapstadt", "Port Elisabeth", "Pretoria", "Daressalam", "Tunis", "Kampala", "Kinshasa"],
 
     // Answers for Staaten
-    staaten: ["Ägypten", "Äquatorialguinea", "Äthiopien", "Algerien", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Côte d'Ivoire", "Dschibuti", "Eritrea", "Gabun", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kamerun", "Kenia", "Komoren", "Kongo", "Lesotho", "Liberia", "Libyen", "Madagaskar", "Malawi", "Mali", "Marokko", "Mauretanien", "Mauritius", "Mosambik", "Namibia", "Niger", "Nigeria", "Ruanda", "Westsahara", "Westsahara", "São Tomé u. Principe", "Senegal", "Seychellen", "Sierra Leone", "Simbabwe", "Somalia", "Sudan", "Südsudan", "Südafrika", "Südafrika", "Tansania", "Togo", "Tschad", "Tunesien", "Uganda", "Demokr. Rep. Kongo", "Zentralafrik. Rep."],
+    staaten: ["Ägypten", "Äquatorialguinea", "Äthiopien", "Algerien", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Côte d'Ivoire", "Dschibuti", "Eritrea", "Gabun", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kamerun", "Kenia", "Komoren", "Kongo", "Lesotho", "Liberia", "Libyen", "Madagaskar", "Malawi", "Mali", "Marokko", "Mauretanien", "Mauritius", "Mosambik", "Namibia", "Niger", "Nigeria", "Ruanda", "Westsahara", "Westsahara", "Swasiland", "Sambia", "São Tomé u. Principe", "Senegal", "Seychellen", "Sierra Leone", "Simbabwe", "Somalia", "Sudan", "Südsudan", "Südafrika", "Südafrika", "Tansania", "Togo", "Tschad", "Tunesien", "Uganda", "Demokr. Rep. Kongo", "Zentralafrik. Rep."],
 
     // Answers for Meere
     meere: ["Atlantischer Ozean", "Benguelastrom", "Golf von Aden", "Golf von Guinea", "Indischer Ozean", "Mittelmeer", "Rotes Meer", "Strasse von Gibraltar", "Strasse von Mosambik"],
