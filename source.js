@@ -117,8 +117,6 @@ function resetGame() {
 }
 
 function startSpeedMode() {
-    // Set Started to True
-    started = true;
 
     // Hide Menu
     hideMenu();
@@ -140,6 +138,7 @@ function startSpeedMode() {
     // display 2
     setTimeout(() => {
         document.getElementById("overlay").innerHTML = "<p class='textoverlay2'>1</p>";
+        Game();
     }, 2000);
 
     // display 1
@@ -152,6 +151,9 @@ function startSpeedMode() {
         document.getElementById("overlay").style.display = "none";
         startTimer();
     }, 3300);
+
+    // Set Started to True
+    started = true;
 
     return started;
 }
@@ -175,7 +177,7 @@ function setMode(inputmode, buttonId) {
     mode = inputmode;
 
     // Start game if a Subject has been selected
-    if(subject != null) {
+    if(subject != null && mode !== "speed") {
         Game();
     }
 
@@ -236,7 +238,7 @@ function setSubject(inputsubject, buttonId) {
     
 
     // Start Game if Mode has been set
-    if(mode != null) {
+    if(mode != null && mode !== "speed") {
         Game();
     }
 
